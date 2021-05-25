@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'MovieController@home') -> name('home');
+
+Route::get('movie/{id}', 'MovieController@movie') -> name('details');
+
+Route::get('create/movie', 'MovieController@create') -> name('newMovie');
+Route::post('store/movie', 'MovieController@store') -> name('store');
